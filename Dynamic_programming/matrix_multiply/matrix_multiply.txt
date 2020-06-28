@@ -1,0 +1,4 @@
+1. Number of columns in 1st matrix = Number of rows in 2nd matrix
+2. Consider two matrices with first matrix pXr and 2nd matrix rXq, then
+a) number of elements in resultant matrix = pXq
+b) number of scalart multiplication  = pXqXr   
