@@ -1,4 +1,4 @@
-# algorithms
+# DSA
 
 TODO
 
