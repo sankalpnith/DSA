@@ -23,7 +23,7 @@ class MinHeap:
 
     def delete_min(self):
         minimum_value = self.data[0]
-        self.data[0] = self.data[self.size-1]
+        self.data[0] = self.data[-1]
         self.data.pop()
         self.size -= 1
         self.percolate_down(0)
