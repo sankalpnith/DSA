@@ -31,8 +31,7 @@ class MaxHeap:
 
         def delete_max(self):
             maxi = self.data[0]
-            self.data[0] = self.data[self.size-1]
-            self.data.pop()
+            self.data[0] = self.data.pop()
             self.size -=1
             self.percolate_down(0)
             return maxi

@@ -21,4 +21,4 @@ def nextPermutation(self, nums: List[int]) -> None:
             j -= 1
         nums[j], nums[i - 1] = nums[i - 1], nums[j]
 
-        nums[i:] = nums[length - 1:i - 1:-1]
+        nums[i:] = nums[-1:i - 1:-1]

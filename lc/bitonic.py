@@ -5,40 +5,34 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         bitonic_index = self.find_bitonic(nums)
+        low, high = 0, len(nums) - 1
         print(bitonic_index)
         if nums[bitonic_index] == target:
             return bitonic_index
-        
-        low,high = 0, len(nums)-1
-        if nums[low] <= target < nums[bitonic_index]:
-            high = bitonic_index -1
-        else:
-            low = bitonic_index+1
-        
-        while low<=high:
-            mid = low + (high -low)//2
-            if nums[mid] == target:
-                return mid
-            if target > nums[mid]:
-                low = mid +1
-            else:
-                high = mid -1
-        return -1
-    
+        result = self.bin_search(nums, low, bitonic_index - 1, target)
+        if result == -1:
+            result = self.bin_search(nums, bitonic_index + 1, high, target)
+        return result
+
     def find_bitonic(self, nums):
-        low,high = 0,len(nums) -1
-        bitonic_index = 0
-        while low<high:
-            mid = low + (high-low)//2
-            if nums[mid] > nums[mid-1] and nums[mid]> nums[mid+1]:
-                bitonic_index = mid
-                break
-            elif nums[mid+1]> nums[mid] and nums[mid-1] > nums[mid]:
-                bitonic_index = mid-1
-                break
-            elif nums[mid+1] > nums[mid]:
-                low = mid+1
+        low, high = 0, len(nums) - 1
+        ele_to_compare = nums[-1]
+        while low < high:
+            mid = low + (high - low) // 2
+            if ele_to_compare >= nums[mid]:
+                high = mid - 1
             else:
-                high = mid-1
-        return 0 if bitonic_index <=0 else bitonic_index
+                low = mid + 1
+        return low
+
+    def bin_search(self, nums, low, high, target):
+        while low <= high:
+            mid = low + (high - low) // 2
+            if target == nums[mid]:
+                return mid
+            elif target > nums[mid]:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return -1
         

@@ -1,4 +1,4 @@
-# to find unique without consuming extra space
+# to validate if string consists of unique characterswithout consuming extra space
 # 1. sort the characters and check if any subsequent chars match -> complexity nlogn + n
 #2. double loop and check char found after thae location of the character. Complexity n2
 

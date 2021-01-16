@@ -1,8 +1,9 @@
 def inorderSuccessor(root, x):
     # Code here
     if x.right is not None:
-        while x.right is not None:
-            x = x.right
+        x = x.right
+        while x.left is not None:
+            x = x.left
         return x
     else:
         output = None

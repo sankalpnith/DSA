@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/largest-rectangle-in-histogram/
+
 class Solution:
     def largestRectangleArea(self, height) -> int:
         # create a strictly increasing monotonic stack

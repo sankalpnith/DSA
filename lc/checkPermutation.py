@@ -1,3 +1,5 @@
+# check if two  strings are permutations  of each other
+
 from collections import defaultdict
 
 
