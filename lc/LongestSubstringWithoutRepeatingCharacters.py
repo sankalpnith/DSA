@@ -5,7 +5,7 @@ def lengthOfLongestSubstring(self, s: str) -> int:
     output = list()
     for i in range(len(s)):
         if s[i] in visited.keys():
-            start = max(visited.get(s[i])+1, start)
+            start = max(visited.get(s[i])+1, start)  # why max beacuse of abba
         if len(output) < i - start + 1:
             output = s[start:i+1]
         visited[s[i]] = i

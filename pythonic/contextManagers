@@ -1,0 +1,55 @@
+Context managers allow you to allocate and release resources precisely when you want to.
+The most widely used example of context managers is the with statement.
+
+Suppose you have two related operations which you’d like to execute as a pair, with a block of code in between.
+Context managers allow you to do specifically that. For example:
+
+with open('some_file', 'w') as opened_file:
+    opened_file.write('Hola!')
+The above code opens the file, writes some data to it and then closes it.
+If an error occurs while writing the data to the file, it tries to close it.
+The above code is equivalent to:
+
+file = open('some_file', 'w')
+try:
+    file.write('Hola!')
+finally:
+    file.close()
+While comparing it to the first example we can see that a lot of boilerplate code is eliminated just by using with.
+The main advantage of using a with statement is that it makes sure our file is closed without paying attention
+to how the nested block exits.
+
+The context manager sets up a temporary context for you and destructs the context after all the operations are completed.
+
+from threading import Lock
+
+# Use the with statement
+with Lock():
+    # do your operations here
+    pass
+
+# Without the with statement
+lock = Lock()
+lock.acquire()
+try:
+    # do your operations here
+except Exception:
+    # handle exceptions
+finally:
+    lock.release()
+
+Defining contextManager, you have to declare __enter__ and __exit__ in the class like
+
+class TestContextManager:
+    def __enter__(self):
+        print("Entering")
+    def __exit__(self):
+        print("Exiting")
+
+with TestContextManger():
+    print("here")
+
+Output is
+Entering
+here
+Exiting

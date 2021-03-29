@@ -19,5 +19,6 @@ def combination(digits):
     previous = combination(digits[:-1])
     additional = list(mapping[digits[-1]])
     return [s+c for s in previous for c in additional]
+    # return [s+c for s in additional for c in previous]
 output = combination('234')
 print(output)

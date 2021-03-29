@@ -63,3 +63,73 @@ class LRUCache:
         self.dict[key] = value
 
 
+
+# Dictionary for O(1) insertion and search. Stores key and node location
+# Doubly linked list O(1) deletion, updation and insertion. Stores data and responsible for maintaining size
+
+
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.dict = {}
+        self.capacity = capacity
+        self.start = None
+        self.end = None
+        self.current_size = 0
+
+    def get(self, key: int) -> int:
+        node = self.dict.get(key)
+        if not node:
+            return -1
+        else:
+            self.remove_and_insert_at_top(node)
+            return node.value
+
+    def put(self, key: int, value: int) -> None:
+        node = self.dict.get(key)
+        if node:
+            self.remove_and_insert_at_top(node)
+            node.value = value
+        else:
+            if self.current_size >= self.capacity:
+                del self.dict[self.end.key]
+                if self.start == self.end:
+                    self.start, self.end = None, None
+                else:
+                    self.end = self.end.left
+                    self.end.right.left = None
+                    self.end.right = None
+                    self.current_size -= 1
+
+            node = Node(key, value)
+            node.left = None
+            node.right = self.start
+            if self.start:
+                self.start.left = node
+            if not self.end:
+                self.end = node
+            self.start = node
+            self.dict[key] = node
+            self.current_size += 1
+
+    def remove_and_insert_at_top(self, node):
+        if self.start == self.end or self.start == node:
+            return
+        if node.left:
+            node.left.right = node.right
+        if node.right:
+            node.right.left = node.left
+        elif node.right is None:
+            self.end = node.left
+        node.right = self.start
+        node.left = None
+        self.start.left = node
+        self.start = node

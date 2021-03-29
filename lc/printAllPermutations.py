@@ -17,5 +17,4 @@ def create(nums, path, result):
     for i in range(len(nums)):
         create(nums[:i] + nums[i + 1:], path + [nums[i]], result)
 
-
 permute([1,2,3])

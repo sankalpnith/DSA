@@ -45,7 +45,7 @@ def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -
 
 
 
-	# if nodes are not present then check if the nodes exist or not before returni
+	# if nodes are not present then check if the nodes exist or not before returning
 def lowestCommonAncestorUtil(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if root is None:
             return None

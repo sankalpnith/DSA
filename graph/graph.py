@@ -1,12 +1,6 @@
 from collections import defaultdict
 
 
-class Node:
-    def __init__(self, vertex):
-        self.vertex = vertex
-        self.next = None
-
-
 class GraphL:
     def __init__(self, vertices):
         self.vertices = vertices

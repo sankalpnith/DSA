@@ -1,6 +1,7 @@
 # Python generators are a simple way of creating iterators.  generator fxn return iterators any fxn having yield is a generator
 #1. Easy to Implement
-#Generators can be implemented in a clear and concise way as compared to their iterator class counterpart. Following is an example to implement a sequence of power of 2 using an iterator class.
+#Generators can be implemented in a clear and concise way as compared to their iterator class counterpart.
+# Following is an example to implement a sequence of power of 2 using an iterator class.
 
 class PowTwo:
     def __init__(self, max=0):

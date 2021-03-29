@@ -1,0 +1,40 @@
+An iterable is anything you can loop over with a for loop in Python
+
+Python's for loops use iterators an not indexes to iterate
+
+>>> numbers = {1, 2, 3, 5, 7}
+>>> coordinates = (4, 5, 7)
+>>> words = "hello there"
+
+We can ask each of these iterables for an iterator using Python's built-in iter function.
+Once we have an iterator, the one thing we can do with it is get its next item by passing it to the built-in next function.
+Iterators are stateful, meaning once you've consumed an item from them, it's gone.
+So you can get an iterator from every iterable.
+The only thing you can do with iterators is ask them for their next item using the next function.
+And if you pass them to next but they don't have a next item, a StopIteration exception will be raised.
+
+def funky_for_loop(iterable, action_to_do):
+    for item in iterable:
+        action_to_do(item)
+
+def funky_for_loop(iterable, action_to_do):
+    iterator = iter(iterable)
+    done_looping = False
+    while not done_looping:
+        try:
+            item = next(iterator)
+        except StopIteration:
+            done_looping = True
+        else:
+            action_to_do(item)
+
+Iterators are iterables.
+
+Generator expression
+(n**2 for n in favorite_numbers)
+Generator Function
+def generate(favourite_numbers):
+    for n in favourite_numbers:
+        yield n**2
+ This is a generator
+ open("filepath",'rw') returns a file_obj which is an iterator
