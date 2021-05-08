@@ -4,26 +4,20 @@
 # Find the 0-based index of the first row that has the maximum number of 1's.
 
 def rowWithMax1s(arr, n, m):
-        col_index = None
         row_index = -1
+        # for i in range(m):
+        #     if arr[0][i] == 1:
+        #         row_index = 0
+        #         col_index = i
+        #         break
+        # if col_index is None:
+        #     col_index = m-1
+        col_index = m-1
         for i in range(n):
-            for j in range(m):
-                if col_index is None:
-                    if arr[i][j] == 1:
-                        row_index = i
-                        col_index = j
-                        break
-                else:
-                    if arr[i][col_index-1] == 1:
-                        if arr[i][j] == 1:
-                            row_index = i
-                            col_index = j
-                            break
-                    else:
-                        break
-            if col_index == 0:
-                return row_index
-        return  row_index
+            while col_index >= 0 and arr[i][col_index] == 1:
+                col_index -= 1
+                row_index = i
+        return row_index
 
 n1 = [0,1,1,1]
 n2 = [0,0,1,1]

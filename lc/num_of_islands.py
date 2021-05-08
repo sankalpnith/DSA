@@ -15,7 +15,7 @@ class Solution:
         cnt = 0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
-                if grid[i][j] == "1" and check[i][j] == False:
+                if grid[i][j] == "1" and not check[i][j]:
                     cnt += 1
                     self.mark(grid, check, i, j)
         return cnt

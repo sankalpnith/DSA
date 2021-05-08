@@ -13,3 +13,6 @@ def singleNumber(nums):
         ones &= not_threes
         twos &= not_threes
     return ones
+
+# get unique numbers by making set
+# multiply list by 3 and then subtract from actual list and then divide by 2

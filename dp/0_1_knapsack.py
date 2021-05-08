@@ -1,4 +1,5 @@
-#You are given weights and values of N items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack.
+#You are given weights and values of N items, put these items in a knapsack of capacity W to
+# get the maximum total value in the knapsack.
 # Note that we have only one quantity of each item.
 #code
 if __name__ == "__main__":

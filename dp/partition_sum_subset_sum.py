@@ -1,4 +1,5 @@
-#Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+#Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that
+# the sum of elements in both subsets is equal.
 #Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:

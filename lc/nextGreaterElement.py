@@ -42,3 +42,25 @@ def nextGreaterElements(self, nums: List[int]) -> List[int]:
             result[stack.pop()] = nums[i]
         stack.append(i)
     return result
+
+# https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
+
+def replaceElements(self, arr: List[int]) -> List[int]:
+    max_element = -1
+    size = len(arr)
+    for i in range(size):
+        value = arr[size - 1 - i]
+        arr[size - 1 - i] = max_element
+        if value > max_element:
+            max_element = value
+    return arr
+
+def replaceElements(self, arr: List[int]) -> List[int]:
+    max_element = -1
+    size = len(arr)
+    for i in range(size-1, -1, -1):
+        value = arr[i]
+        arr[i] = max_element
+        if value > max_element:
+            max_element = value
+    return arr

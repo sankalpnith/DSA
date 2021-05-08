@@ -14,8 +14,9 @@ def calculate(s):
             if odd_found:
                 return 0
             odd_found = True
+        print(value)
         half = value//2
         result //= fact(half)
     return result
 
-print(calculate("aaaaaabbbb"))
+print(calculate("aab"))
