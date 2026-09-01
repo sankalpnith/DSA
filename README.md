@@ -1,4 +1,6 @@
--> Two Sum -> use hashmap
+-> Two Sum -> use hashmap OR sort and use two pointers(left and right) OR create a new arr having elements like (num,index) if you want index
+-> Two Sum II (sorted array) -> two pointers 
+-> 3Sum, and all-pairs Two Sum
 
 → Two Pointers - 3Sum, Sort Colors, Next Permutation
 
