@@ -1,3 +1,5 @@
+-> Two Sum -> use hashmap
+
 → Two Pointers - 3Sum, Sort Colors, Next Permutation
 
 → Sliding Window - Subarray Product Less Than K, Subarrays with K Different Integers
